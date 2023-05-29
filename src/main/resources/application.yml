@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    include: oauth
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/78
+    username: root
+    password: sa12345
+  thymeleaf:
+    cache: true
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:ssl-server.jks
+    key-store-password: test1234
+    key-store-type: JKS
+    keyAlias: selfsigned_localhost_sslserver
+  http:
+    port: 8080
+jwt:
+  secret:
+    key: eyJzdWIiOiIyMDIzMDUwMzIzMDAiLCJuYW1lIjoiQUJD7LSI7L2c66CbIiwiYWxnIjoiSFMyNTYifQ
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIA5XNXEMUCCWJIMJGX
+      secretKey: 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
+    s3:
+      bucket: mynice
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
